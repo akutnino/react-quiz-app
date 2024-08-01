@@ -78,7 +78,7 @@ const reactQuizReducer = (currentState, action) => {
 		case 'nextQuestion':
 			return {
 				questions: currentState.questions,
-				questionIndex: currentState.questionIndex++,
+				questionIndex: currentState.questionIndex + 1,
 				userAnswer: null,
 				userPoints: currentState.userPoints,
 				userHighscore: currentState.userHighscore,
