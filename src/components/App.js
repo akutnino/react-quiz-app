@@ -147,8 +147,13 @@ export default function App(props) {
 	useEffect(() => {
 		const fetchQuestions = async () => {
 			try {
-				const fetchURL = 'http://localhost:8000/questions';
-				const fetchOptions = {};
+				const fetchURL = 'questions.json';
+				const fetchOptions = {
+					headers: {
+						'Content-Type': 'application/json',
+						Accept: 'application/json'
+					}
+				};
 
 				const response = await fetch(fetchURL, fetchOptions);
 				if (!response.ok) throw new Error('FETCH REQUEST FAILED');
@@ -156,7 +161,7 @@ export default function App(props) {
 				const data = await response.json();
 				dispatch({
 					type: 'dataReceived',
-					payload: data
+					payload: data.questions
 				});
 			} catch (error) {
 				dispatch({ type: 'dataError' });
