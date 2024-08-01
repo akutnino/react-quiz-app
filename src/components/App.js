@@ -78,7 +78,7 @@ const reactQuizReducer = (currentState, action) => {
 		case 'nextQuestion':
 			return {
 				questions: currentState.questions,
-				questionIndex: currentState.questionIndex++,
+				questionIndex: (currentState.questionIndex += 1),
 				userAnswer: null,
 				userPoints: currentState.userPoints,
 				userHighscore: currentState.userHighscore,
@@ -143,6 +143,7 @@ export default function App(props) {
 	const totalMaxPoints = questions.reduce((acc, curr) => curr.points + acc, 0);
 	const totalQuestions = questions.length;
 	const isAnswered = userAnswer !== null;
+	console.log(questions);
 
 	useEffect(() => {
 		const fetchQuestions = async () => {
@@ -159,6 +160,7 @@ export default function App(props) {
 				if (!response.ok) throw new Error('FETCH REQUEST FAILED');
 
 				const data = await response.json();
+				// console.log(data.questions);
 				dispatch({
 					type: 'dataReceived',
 					payload: data.questions
