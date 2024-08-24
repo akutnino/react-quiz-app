@@ -1,7 +1,5 @@
-import { useGlobal } from '../contexts/GlobalContext';
-
 export default function StartScreen(props) {
-	const { totalQuestions, dispatch } = useGlobal();
+	const { totalQuestions, dispatch } = props;
 
 	const handleStartQuiz = () => {
 		dispatch({ type: 'startQuiz' });

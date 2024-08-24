@@ -1,8 +1,7 @@
 import { useEffect } from 'react';
-import { useGlobal } from '../contexts/GlobalContext';
 
 export default function Timer(props) {
-	const { secondsRemaining, dispatch } = useGlobal();
+	const { secondsRemaining, dispatch } = props;
 	const minutes = Math.floor(Number(secondsRemaining / 60));
 	const seconds = Number(secondsRemaining % 60);
 

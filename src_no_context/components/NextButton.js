@@ -1,7 +1,5 @@
-import { useGlobal } from '../contexts/GlobalContext';
-
 export default function NextButton(props) {
-	const { totalQuestions, questionIndex, dispatch } = useGlobal();
+	const { totalQuestions, questionIndex, dispatch } = props;
 	const isLastQuestion = questionIndex === totalQuestions - 1;
 
 	const handleNextQuestion = () => {

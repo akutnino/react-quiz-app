@@ -1,9 +1,7 @@
-import { useGlobal } from '../contexts/GlobalContext';
 import Options from './Options';
 
 export default function Question(props) {
-	const { questions, questionIndex, userAnswer, dispatch } = useGlobal();
-	const questionObject = questions[questionIndex];
+	const { questionObject, userAnswer, dispatch } = props;
 
 	return (
 		<div>

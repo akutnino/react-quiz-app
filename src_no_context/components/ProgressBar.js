@@ -1,9 +1,7 @@
 import { useEffect, useRef } from 'react';
-import { useGlobal } from '../contexts/GlobalContext';
 
 export default function ProgressBar(props) {
-	const { questionIndex, totalQuestions, userPoints, totalMaxPoints, isAnswered } =
-		useGlobal();
+	const { questionIndex, totalQuestions, userPoints, totalMaxPoints, isAnswered } = props;
 	const progressElement = useRef(null);
 
 	useEffect(() => {

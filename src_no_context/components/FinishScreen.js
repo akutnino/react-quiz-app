@@ -1,8 +1,7 @@
 import { useRef } from 'react';
-import { useGlobal } from '../contexts/GlobalContext';
 
 export default function FinishScreen(props) {
-	const { userPoints, totalMaxPoints, userHighscore, dispatch } = useGlobal();
+	const { userPoints, totalMaxPoints, userHighscore, dispatch } = props;
 	const scorePercentage = Math.ceil(Number((userPoints / totalMaxPoints) * 100));
 	const emoji = useRef(null);
 
